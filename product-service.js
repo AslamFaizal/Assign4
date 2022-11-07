@@ -1,3 +1,16 @@
+
+/*********************************************************************************
+*  WEB322 – Assignment 04
+4
+*  I declare that this assignment is my own work in accordance with Seneca  Academic Policy.  No part *  of this assignment has been copied manually or electronically from any other source 
+*  (including 3rd party web sites) or distributed to other students.
+* 
+*  Name: Faizal Aslam          Student ID: 152121216        Date: 2022/10/06
+*  Online (Cyclic) Link:  https://sparkling-garment-toad.cyclic.app/
+*
+********************************************************************************/ 
+
+
 const fs = require("fs")
 let products = []
 let categories = []
@@ -10,6 +23,7 @@ exports.initialize = ()=> {
                 return
 
             }
+            
             try {
                 products = JSON.parse(data)
             }
@@ -24,6 +38,7 @@ exports.initialize = ()=> {
                 return
 
             }
+            
             try {
                 categories = JSON.parse(data)
             }
@@ -35,6 +50,8 @@ exports.initialize = ()=> {
         resolve()
     })
 }
+
+
 
 exports.getAllProducts = ()=> {
     return new Promise(function(resolve, reject){
@@ -52,6 +69,8 @@ exports.getPublishedProducts = ()=> {
       let published = products.filter(
         function(product){ return product.published == true}
         )
+      
+      
       if (published.length == 0) {
         reject("No results returned")
         return
@@ -71,6 +90,8 @@ exports.getCategories = ()=> {
     })
 }
 
+
+
 exports.addProduct = (productData) => {
     return new Promise(function(resolve, reject){
         productData.published = (productData.published) ? true : false;
@@ -81,6 +102,7 @@ exports.addProduct = (productData) => {
         resolve();
     })
 }
+
 
 exports.getProductsByMinDate = function (minDateStr) {
     return new Promise(function (resolve, reject) {
@@ -93,6 +115,8 @@ exports.getProductsByMinDate = function (minDateStr) {
             }
         }
 
+        
+        
         if (productsByMinDate.length == 0) {
             reject("No result returned");
             return;
@@ -112,6 +136,8 @@ exports.getproductById = function (id) {
                 productById.push(products[i]);
             }
         }
+        
+        
 
         if (productById.length == 0) {
             reject("No result returned");
@@ -131,6 +157,7 @@ exports.getProductsByCategory = function (category) {
             if (poroducts[i].category == category) {
                 productsByCategory.push(products[i]);
             }
+            
         }
 
         if (productsByCategory.length == 0) {
@@ -141,6 +168,7 @@ exports.getProductsByCategory = function (category) {
         resolve(productsByCategory);
     });
 }
+
 
 exports.getPublishedProductsByCategory = (category) => {
     return new Promise((resolve, reject) => {
