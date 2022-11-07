@@ -4,20 +4,21 @@
 *  I declare that this assignment is my own work in accordance with Seneca  Academic Policy.  No part *  of this assignment has been copied manually or electronically from any other source 
 *  (including 3rd party web sites) or distributed to other students.
 * 
-*  Name: _Mohammed bin obaid Abilail____________ Student ID: _144013208_____________ Date: _06/11/2022______________
+*  Name: Faizal Aslam Student ID: _152121216_____________ Date: _2022-10-06_____________
 *
-*  Online (Cyclic) Link: https://zany-red-seagull-gear.cyclic.app
+*  Online (Cyclic) Link: https://sparkling-garment-toad.cyclic.app/
 *
 ********************************************************************************/
 
 
 
-var productService = require('./product-service.js')
-var express = require("express")
+const express = require("express")
+const productService = require('./product-service.js')
+const path = require("path")
+const app = express()
 
-var app = express()
-var HTTP_PORT = process.env.PORT || 8080
-var path = require("path")
+const HTTP_PORT = process.env.PORT || 8080
+
 const multer = require("multer");
 const cloudinary = require('cloudinary').v2
 const streamifier = require('streamifier')
@@ -26,9 +27,9 @@ app.use('/public', express.static(path.join(__dirname, "public")));
 
 
 cloudinary.config({
-  cloud_name: 'dee4gk04d',
-  api_key: '619721267576237',
-  api_secret: 'j2TkPnJu-sQk9CO6x9gge9NO3BQ',
+ cloud_name: 'dqautjmwh',
+  api_key: '252944672212866',
+  api_secret: 'tWTnPNC4fxDtrhxyu4PEBsfNjgo',
   secure: true
 });
 const upload = multer();
