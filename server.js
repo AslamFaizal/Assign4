@@ -286,5 +286,5 @@ productService.initialize()
   })
 
   .catch(() => {
-    console.log("Failesd promises")
+    console.log("Failed promises")
   })
